@@ -1,5 +1,13 @@
 #include <Arduino.h>
 #include "config.h"
+#include "config.h"
+
+void setup() {
+    Serial.begin(115200);
+    pinMode(PIN_BUTTON, INPUT_PULLUP);
+}
+
+
 constexpr int PRESSED_LEVEL = LOW;           // niveau lu quand on appuie (étape 1)
 constexpr unsigned long DEBOUNCE_MS = 30;
 
@@ -25,6 +33,8 @@ bool justPressed(Button& b) {
     }
     return false;
 }
+
+
 
 void loop() {
     static int count = 0;
